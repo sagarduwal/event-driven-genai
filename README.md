@@ -39,3 +39,11 @@
           }
        }
        ```
+      
+
+TODO:
+- syncronous and asyncronous services 
+- chat api on multiple LLMs 
+- prompt management 
+- autonuze.me service management
+- predictive analysis tools 
