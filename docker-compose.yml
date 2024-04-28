@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    hostname: "rabbitmq"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  microservice:
+    build:
+      context: demo-service
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - QUEUE_NAME=task_queue
+
+  api_gateway:
+    build:
+      context: api-gateway
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+    ports:
+      - "5000:5000"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - QUEUE_NAME=task_queue
