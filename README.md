@@ -44,6 +44,8 @@
 TODO:
 - syncronous and asyncronous services 
 - chat api on multiple LLMs 
+- streaming chat on llm
+- text to image model - long running, load balanced, limited request
 - prompt management 
 - autonuze.me service management
 - predictive analysis tools 
